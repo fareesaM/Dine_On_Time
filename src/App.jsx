@@ -10,24 +10,30 @@ import RestaurantPage from './pages/RestaurantPage';
 import CreateRestaurantPage from './pages/CreateRestaurantPage';
 import ManageMenuPage from './pages/ManageMenuPage';
 import Navbar from './components/Navbar';
+import Sidebar from './components/Sidebar'; // New Sidebar component
 import { AuthContext } from './context/AuthContext';
 
 function App() {
   const { isAuthenticated } = useContext(AuthContext);
 
   return (
-    <div>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/register" element={isAuthenticated ? <Navigate to="/" /> : <RegisterPage />} />
-        <Route path="/login" element={isAuthenticated ? <Navigate to="/" /> : <LoginPage />} />
-        <Route path="/profile" element={isAuthenticated ? <ProfilePage /> : <Navigate to="/login" />} />
-        <Route path="/restaurants" element={isAuthenticated ? <RestaurantPage /> : <Navigate to="/login" />} />
-        <Route path="/restaurants/create" element={isAuthenticated ? <CreateRestaurantPage /> : <Navigate to="/login" />} />
-        <Route path="/restaurants/:restaurantId/menu" element={isAuthenticated ? <ManageMenuPage /> : <Navigate to="/login" />} />
-        <Route path="*" element={<Navigate to="/" />} /> {/* Redirect any unknown route to Home */}
-      </Routes>
+    <div className="flex min-h-screen bg-gray-100"> {/* Use Tailwind for styling */}
+      <Sidebar /> 
+      <div className="flex-1">
+        <Navbar />
+        <div className="p-4">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/register" element={isAuthenticated ? <Navigate to="/" /> : <RegisterPage />} />
+            <Route path="/login" element={isAuthenticated ? <Navigate to="/" /> : <LoginPage />} />
+            <Route path="/profile" element={isAuthenticated ? <ProfilePage /> : <Navigate to="/login" />} />
+            <Route path="/restaurants" element={isAuthenticated ? <RestaurantPage /> : <Navigate to="/login" />} />
+            <Route path="/restaurants/create" element={isAuthenticated ? <CreateRestaurantPage /> : <Navigate to="/login" />} />
+            <Route path="/restaurants/:restaurantId/menu" element={isAuthenticated ? <ManageMenuPage /> : <Navigate to="/login" />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }

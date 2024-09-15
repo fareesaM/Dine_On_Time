@@ -9,3 +9,4 @@ Currently, two official plugins are available:
 # dot-restaurant-owner
 # dot_frontend
 # dot_frontend
+# Dine_On_Time
