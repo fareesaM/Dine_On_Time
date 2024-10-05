@@ -10,3 +10,5 @@ Currently, two official plugins are available:
 # dot_frontend
 # dot_frontend
 # Dine_On_Time
+# DOTfrontend
+# DOTfrontend
