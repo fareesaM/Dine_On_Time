@@ -1,5 +1,3 @@
-// src/components/Sidebar.jsx
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -11,6 +9,8 @@ const Sidebar = () => {
         <Link to="/" className="text-gray-700 hover:bg-gray-200 p-2 rounded">Dashboard</Link>
         <Link to="/restaurants" className="text-gray-700 hover:bg-gray-200 p-2 rounded">Restaurants</Link>
         <Link to="/restaurants/create" className="text-gray-700 hover:bg-gray-200 p-2 rounded">Create Restaurant</Link>
+        <Link to="/reservations/create" className="text-gray-700 hover:bg-gray-200 p-2 rounded">Create Reservation</Link>
+        <Link to="/reservations" className="text-gray-700 hover:bg-gray-200 p-2 rounded">My Reservations</Link>
         <Link to="/profile" className="text-gray-700 hover:bg-gray-200 p-2 rounded">Profile</Link>
       </nav>
     </div>

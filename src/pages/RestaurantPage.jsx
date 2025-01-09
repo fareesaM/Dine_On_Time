@@ -1,5 +1,3 @@
-// src/pages/RestaurantPage.jsx
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -17,6 +15,7 @@ function RestaurantPage() {
             Authorization: `Bearer ${token}`,
           },
         });
+        console.log('Fetched restaurants:', response.data); // Log the fetched data
         setRestaurants(response.data);
       } catch (error) {
         console.error('Error fetching restaurants:', error);
@@ -53,6 +52,9 @@ function RestaurantPage() {
           <li key={restaurant._id}>
             <h2>{restaurant.name}</h2>
             <p>{restaurant.description}</p>
+            {restaurant.imageUrl && (
+              <img src={restaurant.imageUrl} alt={restaurant.name} style={{ width: '200px', height: '150px' }} />
+            )}
             <button onClick={() => handleManageMenu(restaurant._id)}>Manage Menu</button>
             <button onClick={() => handleDelete(restaurant._id)}>Delete</button>
           </li>

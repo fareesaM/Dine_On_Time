@@ -1,9 +1,25 @@
-// src/pages/HomePage.jsx
-
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function HomePage() {
+  const [restaurants, setRestaurants] = useState([]);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    const fetchRestaurants = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/restaurants');
+        setRestaurants(response.data);
+      } catch (err) {
+        console.error('Error fetching restaurants:', err);
+        setError('Failed to fetch restaurants. Please try again.');
+      }
+    };
+
+    fetchRestaurants();
+  }, []);
+
   return (
     <div style={{ padding: '20px', textAlign: 'center' }}>
       <h1 className='text-red-500'>Welcome to Dine On Time</h1>
@@ -19,6 +35,19 @@ function HomePage() {
         <Link to="/restaurants">
           <button>View Restaurants</button>
         </Link>
+      </div>
+      
+      <div style={{ marginTop: '20px' }}>
+        <h2 className='text-blue-500'>Restaurants</h2>
+        {error ? (
+          <p style={{ color: 'red' }}>{error}</p>
+        ) : (
+          <ul>
+            {restaurants.map((restaurant) => (
+              <li key={restaurant._id}>{restaurant.name}</li>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );

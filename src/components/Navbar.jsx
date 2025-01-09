@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt, faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import './Navbar.css'; // Make sure to import your CSS file
 
 function Navbar() {
   const navigate = useNavigate();
@@ -12,58 +15,35 @@ function Navbar() {
   };
 
   return (
-    <nav  style={styles.navbar}>
-      <div style={styles.navbarBrand}>
-        <Link to="/" style={styles.link}>Dine On Time</Link>
+    <nav className="navbar">
+      <div className="navbar-logo">
+        <Link to="/" className="navbar-logo">Dine On Time</Link>
       </div>
-      <div style={styles.navLinks}>
+      <div className="search-container">
+        <div className="location">
+          <FontAwesomeIcon icon={faMapMarkerAlt} className="location-icon" />
+          <span>Bengaluru</span>
+          <FontAwesomeIcon icon={faCaretDown} className="dropdown-arrow" />
+        </div>
+        <input type="text" placeholder="Search for restaurant, cuisine or a dish" className="search-input" />
+      </div>
+      <ul className="navbar-links">
         {isAuthenticated ? (
           <>
-            <Link to="/profile" style={styles.link}>Profile</Link>
-            <Link to="/restaurants" style={styles.link}>Restaurants</Link>
-            <Link to="/restaurants/create" style={styles.link}>Create Restaurant</Link>
-            <button onClick={handleLogout} style={styles.button}>Logout</button>
+            <li><Link to="/profile">Profile</Link></li>
+            <li><Link to="/restaurants">Restaurants</Link></li>
+            <li><Link to="/restaurants/create">Create Restaurant</Link></li>
+            <li><button onClick={handleLogout} className="navbar-button">Logout</button></li>
           </>
         ) : (
           <>
-            <Link to="/register" style={styles.link}>Register</Link>
-            <Link to="/login" style={styles.link}>Login</Link>
+            <li><Link to="/register">Sign Up</Link></li>
+            <li><Link to="/login">Login</Link></li>
           </>
         )}
-      </div>
+      </ul>
     </nav>
   );
 }
-
-const styles = {
-  navbar: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    padding: '10px 20px',
-    backgroundColor: '#333',
-    color: '#fff',
-  },
-  navbarBrand: {
-    fontSize: '1.5em',
-    fontWeight: 'bold',
-  },
-  navLinks: {
-    display: 'flex',
-    alignItems: 'center',
-  },
-  link: {
-    color: '#fff',
-    textDecoration: 'none',
-    marginRight: '15px',
-  },
-  button: {
-    backgroundColor: '#f44336',
-    color: '#fff',
-    border: 'none',
-    padding: '8px 15px',
-    cursor: 'pointer',
-    fontSize: '1em',
-  },
-};
 
 export default Navbar;
