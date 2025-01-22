@@ -18,7 +18,7 @@ const CreateReservationPage = () => {
   useEffect(() => {
     const fetchRestaurants = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/restaurants', {
+        const response = await axios.get('https://fsd-dot-bknd.onrender.com/api/restaurants', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setRestaurants(response.data);
@@ -40,7 +40,7 @@ const CreateReservationPage = () => {
     const fetchMenuItems = async () => {
       if (!restaurantId) return;
       try {
-        const response = await axios.get(`http://localhost:5000/api/menu/${restaurantId}/menu`, {
+        const response = await axios.get(`https://fsd-dot-bknd.onrender.com/api/menu/${restaurantId}/menu`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         setMenuItems(response.data.items);
@@ -57,7 +57,7 @@ const CreateReservationPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/reservations',
+        'https://fsd-dot-bknd.onrender.com/api/reservations',
         {
           restaurantId,
           menuIds: selectedMenuItems.map((item) => item._id),

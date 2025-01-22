@@ -21,7 +21,7 @@ function RegisterForm() {
     };
 
     try {
-      await axios.post('http://localhost:5000/api/users/register', newUser);
+      await axios.post('https://fsd-dot-bknd.onrender.com/api/users/register', newUser);
       alert('User registered successfully');
       setName('');
       setEmail('');

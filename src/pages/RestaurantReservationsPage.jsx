@@ -19,7 +19,7 @@ const CreateReservationPage = () => {
       try {
         const token = localStorage.getItem('token');
         console.log('Token:', token);
-        const response = await axios.get('http://localhost:5000/api/restaurants', {
+        const response = await axios.get('https://fsd-dot-bknd.onrender.com/api/restaurants', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setRestaurants(response.data);
@@ -48,7 +48,7 @@ const CreateReservationPage = () => {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post('http://localhost:5000/api/reservations', newReservation, {
+      const response = await axios.post('https://fsd-dot-bknd.onrender.com/api/reservations', newReservation, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

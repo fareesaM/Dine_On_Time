@@ -15,7 +15,7 @@ function ProfilePage() {
       }
 
       try {
-        const response = await axios.get('http://localhost:5000/api/users/profile', {
+        const response = await axios.get('https://fsd-dot-bknd.onrender.com/api/users/profile', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

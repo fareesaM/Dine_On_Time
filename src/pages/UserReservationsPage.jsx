@@ -12,7 +12,7 @@ function MyReservationsPage() {
   useEffect(() => {
     const fetchReservations = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/reservations/myreservations', {
+        const response = await axios.get('https://fsd-dot-bknd.onrender.com/api/reservations/myreservations', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

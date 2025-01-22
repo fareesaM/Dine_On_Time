@@ -10,7 +10,7 @@ function RestaurantPage() {
     const fetchRestaurants = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:5000/api/restaurants/myrestaurants', {
+        const response = await axios.get('https://fsd-dot-bknd.onrender.com/api/restaurants/myrestaurants', {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -28,7 +28,7 @@ function RestaurantPage() {
   const handleDelete = async (id) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/restaurants/${id}`, {
+      await axios.delete(`https://fsd-dot-bknd.onrender.com/api/restaurants/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

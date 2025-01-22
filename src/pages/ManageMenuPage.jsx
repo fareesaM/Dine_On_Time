@@ -18,7 +18,7 @@ function ManageMenuPage() {
           return;
         }
 
-        const response = await axios.get(`http://localhost:5000/api/menu/${restaurantId}`, {
+        const response = await axios.get(`https://fsd-dot-bknd.onrender.com/api/menu/${restaurantId}`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -49,7 +49,7 @@ function ManageMenuPage() {
       formData.append('image', newImage);
   
       const response = await axios.post(
-        `http://localhost:5000/api/restaurants/${restaurantId}/menu`,
+        `https://fsd-dot-bknd.onrender.com/api/restaurants/${restaurantId}/menu`,
         formData,
         {
           headers: {
@@ -79,7 +79,7 @@ function ManageMenuPage() {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.put(
-        `http://localhost:5000/api/menu/${restaurantId}/${id}`,
+        `https://fsd-dot-bknd.onrender.com/api/menu/${restaurantId}/${id}`,
         updatedItem,
         {
           headers: {
@@ -99,7 +99,7 @@ function ManageMenuPage() {
   const handleDeleteMenuItem = async (id) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:5000/api/menu/${restaurantId}/${id}`, {
+      await axios.delete(`https://fsd-dot-bknd.onrender.com/api/menu/${restaurantId}/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

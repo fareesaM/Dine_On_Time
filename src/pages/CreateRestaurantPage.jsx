@@ -24,7 +24,7 @@
   
 //     try {
 //       const token = localStorage.getItem('token');
-//       const response = await axios.post('http://localhost:5000/api/restaurants', newRestaurant, {
+//       const response = await axios.post('https://fsd-dot-bknd.onrender.com/api/restaurants', newRestaurant, {
 //         headers: {
 //           Authorization: `Bearer ${token}`,
 //         },
@@ -108,7 +108,7 @@ function CreateRestaurantPage() {
 
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.post('http://localhost:5000/api/restaurants', formData, {
+      const response = await axios.post('https://fsd-dot-bknd.onrender.com/api/restaurants', formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           'Content-Type': 'multipart/form-data', // Specify the content type
