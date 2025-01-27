@@ -6,7 +6,7 @@
 
 Dine on Time is a full-stack restaurant management platform aimed at simplifying operations and enhancing customer experiences. The frontend of this application is built to provide a seamless and intuitive user interface for all stakeholders, including customers, restaurant owners, and administrators.
 
-This project is live and accessible via [Dine on Time Frontend](https://fareesam.github.io/).
+This project is live and accessible via [Dine on Time Frontend](https://dine-on-time-t9s8.onrender.com/).
 
 ---
 
@@ -45,8 +45,8 @@ This project is live and accessible via [Dine on Time Frontend](https://fareesam
 
 ## Project Links
 
-- **Code Repository**: [GitHub](https://fareesam.github.io/)
-- **Live Deployment**: [Dine on Time Frontend](https://fareesam.github.io/)
+- **Code Repository**: [GitHub](https://github.com/fareesaM/Dine_On_Time)
+- **Live Deployment**: [Dine on Time Frontend](https://dine-on-time-t9s8.onrender.com/)
 
 ---
 
@@ -78,15 +78,15 @@ This project is live and accessible via [Dine on Time Frontend](https://fareesam
 
 1. Start the development server:
    ```bash
-   npm start
+   npm run dev
    ```
 2. Open your browser and navigate to:
    ```
-   http://localhost:3000
+   http://localhost:5173
    ```
 
 3. Alternatively, access the live deployment:
-   [Dine on Time Frontend](https://fareesam.github.io/)
+   [Dine on Time Frontend](https://github.com/fareesaM/Dine_On_Time)
 
 ---
 
